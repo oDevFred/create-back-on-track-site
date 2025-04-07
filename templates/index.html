@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Back on Track</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='assets/fav-ico.png') }}" type="image/x-icon">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body id="top">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container nav-content">
+            <a class="navbar-brand" href="#top">
+                <img src="{{ url_for('static', filename='assets/fav-ico.png') }}" alt="Create Back on Track">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto nav-links">
+                    <li class="nav-item"><a class="nav-link" href="#download">Download</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#changelog">Changelog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#description">Description</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="mt-5 pt-3">
+        <section id="download" class="hero">
+            <div class="hero-content">
+                <img src="{{ url_for('static', filename='assets/Logo-CTB.PNG') }}" alt="Create Back on Track Art" class="hero-art">
+                <div class="cta-buttons">
+                    <a href="https://www.curseforge.com/minecraft/modpacks/create-back-on-track" class="cta-button curseforge" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-download"></i> Download on CurseForge ({{ downloads if downloads is not none else 'N/A' }})
+                    </a>
+                    <a href="#" class="cta-button modrinth disabled" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-download"></i> Download on Modrinth (Em breve)
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="gallery" class="gallery">
+            <h2>Image Gallery</h2>
+            <div class="gallery-discord-container">
+                <div class="carousel">
+                    <div class="carousel-container">
+                        <div class="carousel-slide"><img src="{{ url_for('static', filename='assets/fabrica1.png') }}" alt="Fabrica1"></div>
+                        <div class="carousel-slide"><img src="{{ url_for('static', filename='assets/caverna.png') }}" alt="Caverna"></div>
+                        <div class="carousel-slide"><img src="{{ url_for('static', filename='assets/paisagem.png') }}" alt="Paisagem"></div>
+                        <div class="carousel-slide"><img src="{{ url_for('static', filename='assets/fabrica2.png') }}" alt="Fabrica2"></div>
+                        <div class="carousel-slide"><img src="{{ url_for('static', filename='assets/paisagem2.png') }}" alt="Paisagem2"></div>
+                    </div>
+                    <button class="carousel-button prev">❮</button>
+                    <button class="carousel-button next">❯</button>
+                </div>
+                <div class="discord-widget">
+                    <iframe src="https://discord.com/widget?id=921850361076137985&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+                </div>
+            </div>
+        </section>
+
+        <section id="team" class="team">
+            <div class="tabs">
+                <button class="tab-button active" data-tab="content-creators">Content Creator</button>
+                <button class="tab-button" data-tab="developers">Developers</button>
+                <button class="tab-button" data-tab="website">Website</button>
+            </div>
+
+            <div class="tab-content" id="developers">
+                <div class="team-grid">
+                    <div class="team-member">
+                        <img src="{{ url_for('static', filename='assets/developers/titan.png') }}" alt="Developer 1">
+                        <h3><a href="https://www.curseforge.com/members/titammods/projects" class="link-youtuber" target="_blank">titammods</a></h3>
+                        <p>Lead Developer</p>
+                    </div>
+                    <div class="team-member">
+                        <img src="{{ url_for('static', filename='assets/developers/reeds.png') }}" alt="Developer 1">
+                        <h3><a href="https://www.curseforge.com/members/terentre4e25caracteres/projects" class="link-youtuber" target="_blank">terentre4e25caracteres</a></h3>
+                        <p>Developer</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-content" id="website">
+                <div class="team-grid">
+                    <div class="team-member">
+                        <img src="{{ url_for('static', filename='assets/developers/odevfred.jpg') }}" alt="Website Developer">
+                        <h3><a href="https://odevfred.github.io/portifolio/" class="link-youtuber" target="_blank">oDevFred</a></h3>
+                        <p>Website Developer</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-content active" id="content-creators">
+                <div class="team-grid">
+                    <div class="team-member">
+                        <img src="{{ url_for('static', filename='assets/creators/danrique.webp') }}" alt="Content Creator 1">
+                        <h3><a href="https://www.youtube.com/@Danrique" class="link-youtuber" target="_blank">Danrique</a></h3>
+                        <p>Youtuber</p>
+                    </div>
+                    <div class="team-member">
+                        <img src="{{ url_for('static', filename='assets/creators/mitinho.jpg') }}" alt="Content Creator 1">
+                        <h3><a href="https://www.youtube.com/@MitinhoPlayer" class="link-youtuber" target="_blank">MitinhoPlayer</a></h3>
+                        <p>YouTuber</p>
+                    </div>
+                    <div class="team-member">
+                        <img src="{{ url_for('static', filename='assets/creators/nofaxu.jpg') }}" alt="Content Creator 1">
+                        <h3><a href="https://www.youtube.com/@Nofaxu" class="link-youtuber" target="_blank">Nofaxu</a></h3>
+                        <p>YouTuber</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="changelog" class="gallery">
+            <h2>Changelog {{ version }}</h2>
+            <div class="card">
+                <div class="card-body">
+                    <h3>Data: {{ date }}</h3>
+                    {{ changelog|safe if changelog else 'Changelog não disponível.' }}
+                </div>
+            </div>
+        </section>
+
+        <!-- <section id="description" class="gallery">
+            <h2>Modpack Description</h2>
+            <div class="card">
+                <div class="card-body">
+                    {{ description|safe if description else 'Descrição não disponível.' }}
+                </div>
+            </div>
+        </section> -->
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="#download">Download</a>
+                <a href="#gallery">Galeria</a>
+                <a href="#team">Team</a>
+                <a href="#changelog">Changelog</a>
+                <a href="#description">Description</a>
+            </div>
+            <p class="footer-text">© 2025 Create Back on Track All rights reserved - Made with ❤️ by oDevFred</p>
+        </div>
+    </footer>
+
+    <button id="back-to-top" title="Back to Top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwPTxwGCYcvKljuCBUMwsYm1G9yim" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1yrVcm2od1YYSytrUxzc6NwLEKlFjlhqJQrsR1uIKBIMS6U0gJzjR" crossorigin="anonymous"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
