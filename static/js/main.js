@@ -1,29 +1,37 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Navbar Toggle
-    const hamburger = document.querySelector('.hamburger');
-    const navLinks = document.querySelector('.nav-links');
+    const hamburger = document.querySelector('.navbar-toggler');
+    const navLinks = document.querySelector('.navbar-collapse');
 
     if (hamburger && navLinks) {
         hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            navLinks.classList.toggle('active');
+            navLinks.classList.toggle('show');
         });
 
-        document.querySelectorAll('.nav-links a').forEach(link => {
+        const navbarLinks = document.querySelectorAll('.nav-links a');
+        const footerLinks = document.querySelectorAll('footer .footer-links a');
+        const allLinks = [...navbarLinks, ...footerLinks];
+
+        allLinks.forEach(link => {
             link.addEventListener('click', function(event) {
                 event.preventDefault();
 
                 const targetId = this.getAttribute('href');
-                const targetElement = document.getElementById(targetId.substring(1));
+                const targetElement = document.querySelector(targetId);
 
                 if (targetElement) {
                     console.log('Rolando para elemento:', targetElement);
-                    targetElement.scrollIntoView({ behavior: 'smooth' });
 
-                    // Fechar o menu hambúrguer após clicar em um link (se estiver aberto)
-                    if (hamburger.classList.contains('active')) {
-                        hamburger.classList.remove('active');
-                        navLinks.classList.remove('active');
+                    const navbarHeight = document.querySelector('.navbar').offsetHeight;
+                    const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY - navbarHeight;
+
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+
+                    if (navLinks.classList.contains('show')) {
+                        navLinks.classList.remove('show');
                     }
                 } else {
                     console.error('Elemento alvo não encontrado:', targetId);
@@ -69,7 +77,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Image Carousel (Basic Implementation)
+    // Image Carousel
     const carouselContainer = document.querySelector('.carousel-container');
     const prevButton = document.querySelector('.carousel-button.prev');
     const nextButton = document.querySelector('.carousel-button.next');
