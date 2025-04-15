@@ -191,6 +191,27 @@ body {
     display: block; /* Evita espaço extra abaixo da imagem */
 }
 
+.video-gallery {
+    padding: 3rem 1.5rem;
+    background-color: var(--gray);
+}
+
+.ratio {
+    position: relative;
+    width: 100%;
+    padding-bottom: 40%; /* Ajuste a altura aqui */ 
+    height: 0;
+}
+
+.ratio iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
 .carousel-button {
     position: absolute;
     top: 50%;

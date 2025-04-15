@@ -40,7 +40,7 @@ def formatar_data(data_iso):
         # Converte a string para um objeto datetime
         data_objeto = datetime.fromisoformat(data_string)
         # Formata o objeto datetime para o formato desejado
-        data_formatada = data_objeto.strftime('%Y-%m-%d %H:%M:%S')
+        data_formatada = data_objeto.strftime('%d/%m/%Y %H:%M')
         return data_formatada
     except ValueError:
         print(f"Erro ao converter a data: {data_iso}")
